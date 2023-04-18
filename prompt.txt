@@ -1,0 +1,16 @@
+{}
+
+Formatage :
+La présentation est sous forme d'une présentation html utilisant WebSlides et Tailwind css
+Il est possible d'integrer une image d'illustration avce la balise <img prompt=""> (jpg) dont l'attribut prompt contient une description visuelle de l'image en anglais.
+La présentation doit contenir un vocabulaire clair et simple car il est destiné a un public d'investisseurs.
+
+Plan de présentation du projet
+- Nom du projet et résumé en une phrase (illustration)
+- Trois étapes principales de la conception du projet
+- Cinq difficultés et challenge relatifs au projet
+- Trois possibilités d'amélioration du projet
+- Remerciements aux spectateurs (illustration)
+
+Présentation :
+<body>
