@@ -10,6 +10,8 @@ import json
 import time
 from deep_translator import GoogleTranslator
 from langdetect import detect
+import tarfile
+import datetime
 
 id = uuid.uuid4()
 id = str(id).replace("-", "")
@@ -104,8 +106,9 @@ print("Generating presentation...")
 pres = get_presentation(prompt)
 
 
-# copy folder template/ to the presentation folder
-os.system(f"cp -r template {id}")
+# unzip template.tgz to the id folder
+with tarfile.open("template.tgz", "r:gz") as tar:
+    tar.extractall(id)
 
 # wait for the files to be copied
 while not os.path.exists(f"{id}/template/pres.html"):
@@ -123,6 +126,11 @@ with open(f"{id}/template/pres.html", "w") as f:
 
 print("Generating images...")
 generate_images(f"{id}/template/pres.html")
+
+# rename id folder to the current date ISO8601 format
+os.rename(id, datetime.datetime.now().isoformat())
+
+id = datetime.datetime.now().isoformat()
 
 if os.name == "nt":
     os.system(f"start {id}/template/pres.html")
