@@ -132,6 +132,10 @@ os.rename(id, datetime.datetime.now().isoformat())
 
 id = datetime.datetime.now().isoformat()
 
+print("="*os.get_terminal_size().columns)
+print(f"You can poen your file {os.path.abspath(id)}/template/pres.html in your browser")
+print("="*os.get_terminal_size().columns)
+
 if os.name == "nt":
     os.system(f"start {id}/template/pres.html")
 else:
